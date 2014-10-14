@@ -6,14 +6,44 @@ html
     title
     // compiled css output
     link(href='css/ionic.app.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
     // ionic/angularjs js
     script(src='lib/ionic/js/ionic.bundle.js')
     // cordova script (this will be a 404 during development)
     script(src='cordova.js')
     // your app's js
     script(src='js/app.js')
-  body(ng-app='mk-calculator')
-    ion-pane
-      ion-header-bar.bar-stable
-        h1.title Calculator title
-      ion-content
+    script(src='js/main_controller.js')
+  body(ng-app='mk-calculator', ng-controller='MainCtrl')
+    .bar.bar-header.bar-calm
+        h1.title Calculator
+
+    ion-content.has-header
+      h1 {{greeting}}
+      .display {{display}}
+        .button-bar
+          .button(ng-click='number(1)') 1
+          .button(ng-click='number(2)') 2
+          .button(ng-click='number(3)') 3
+          .button(ng-click='add()') +
+        .button-bar
+          .button(ng-click='number(4)') 4
+          .button(ng-click='number(5)') 5
+          .button(ng-click='number(6)') 6
+          .button -
+        .button-bar
+          .button(ng-click='number(7)') 7
+          .button(ng-click='number(8)') 8
+          .button(ng-click='number(9)') 9
+          .button *
+        .button-bar
+          .button(ng-click='number(0)') 0
+          .button(ng-cick='decimal()') .
+          .button(ng-click='equals()') =
+          .button /
+        .button-bar
+          .button(ng-click='clear()') C
+
+    .bar.bar-footer.bar-assertive
+      .title
+        small Foot
