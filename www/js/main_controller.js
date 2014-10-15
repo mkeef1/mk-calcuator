@@ -6,14 +6,17 @@
     $scope.display = '0';
     $scope.numbers = [];
     $scope.number = function(num){
-      $scope.display += num;
-        if($scope.display[0] === '0'){
-          $scope.display = $scope.display.slice(1);
-          console.log(num);
-        };
+      var dis = $scope.display;
+      num += '';
 
-          return $scope.display;
-      };
+      if(dis === '0'){
+        dis = num;
+      }else{
+        dis += num;
+      }
+      $scope.display = dis;
+      console.log(dis);
+    };
 
       $scope.clear = function(){
         $scope.display = '0';
@@ -27,7 +30,7 @@
 
       $scope.add = function(){
         $scope.numbers.push($scope.display);
-        $scope.clear;
+        $scope.clear();
       };
 
       $scope.equals = function(x, y){
@@ -36,5 +39,5 @@
 
         return x + y;
       };
-  }]);
+    }]);
 })();
