@@ -25,22 +25,22 @@ html
           .button(ng-click='number(1)') 1
           .button(ng-click='number(2)') 2
           .button(ng-click='number(3)') 3
-          .button(ng-click='add(dis)') +
+          .button(ng-click='calc("+")') +
         .button-bar
           .button(ng-click='number(4)') 4
           .button(ng-click='number(5)') 5
           .button(ng-click='number(6)') 6
-          .button -
+          .button(ng-click='calc("-")') -
         .button-bar
           .button(ng-click='number(7)') 7
           .button(ng-click='number(8)') 8
           .button(ng-click='number(9)') 9
-          .button *
+          .button(ng-click='calc("*")') *
         .button-bar
           .button(ng-click='number(0)') 0
-          .button(ng-cick='decimal()') .
-          .button(ng-click='equals()') =
-          .button /
+          .button(ng-cick='number(".")') .
+          .button(ng-click='math()') =
+          .button(ng-click='calc("/")') /
         .button-bar
           .button(ng-click='clear()') C
 

@@ -4,40 +4,47 @@
   angular.module('mk-calculator')
   .controller('MainCtrl', ['$scope', function($scope){
     $scope.display = '0';
-    $scope.numbers = [];
-    $scope.number = function(num){
-      var dis = $scope.display;
-      num += '';
 
-      if(dis === '0'){
-        dis = num;
-      }else{
-        dis += num;
-      }
-      $scope.display = dis;
-      console.log(dis);
+    $scope.calc = function(op){
+      $scope.operator = op;
+      $scope.temp = $scope.display;
+      $scope.display = '0';
     };
 
-      $scope.clear = function(){
-        $scope.display = '0';
-      };
+    $scope.number = function(num){
+      console.log(num);
+      num = num.toString();
+      if(num === '.' && $scope.display.indexOf('.') > -1){return;}
 
-      $scope.decimal = function(){
-        if($scope.display.indexOf('.') === -1){
-          $scope.display = '.';
-        }
-      };
+      if($scope.display === '0' && num !== '.'){
+        $scope.display = num;
+      }else{
+        $scope.display += num;
+      }
+    };
 
-      $scope.add = function(){
-        $scope.numbers.push($scope.display);
-        $scope.clear();
-      };
+    $scope.math = function(){
+      switch($scope.operator){
+        case '+':
+          $scope.display = (parseFloat($scope.display) + parseFloat($scope.temp)).toString();
+          break;
+        case '-':
+          $scope.display = (parseFloat($scope.display) - parseFloat($scope.temp)).toString();
+          break;
+        case '*':
+          $scope.display = (parseFloat($scope.display) * parseFloat($scope.temp)).toString();
+          break;
+        case '/':
+          $scope.display = (parseFloat($scope.display) / parseFloat($scope.temp)).toString();
+          break;
+      }
+    };
 
-      $scope.equals = function(x, y){
-        var x = $scope.numbers[0],
-              y = $scope.numbers[1];
+    $scope.clear = function(){
+      $scope.display = '0';
+      $scope.operator = '';
+      $scope.temp = '';
+    };
 
-        return x + y;
-      };
     }]);
 })();

@@ -26,25 +26,25 @@
           <div ng-click="number(1)" class="button">1</div>
           <div ng-click="number(2)" class="button">2</div>
           <div ng-click="number(3)" class="button">3</div>
-          <div ng-click="add(dis)" class="button">+</div>
+          <div ng-click="calc(&quot;+&quot;)" class="button">+</div>
         </div>
         <div class="button-bar">
           <div ng-click="number(4)" class="button">4</div>
           <div ng-click="number(5)" class="button">5</div>
           <div ng-click="number(6)" class="button">6</div>
-          <div class="button">-</div>
+          <div ng-click="calc(&quot;-&quot;)" class="button">-</div>
         </div>
         <div class="button-bar">
           <div ng-click="number(7)" class="button">7</div>
           <div ng-click="number(8)" class="button">8</div>
           <div ng-click="number(9)" class="button">9</div>
-          <div class="button">*</div>
+          <div ng-click="calc(&quot;*&quot;)" class="button">*</div>
         </div>
         <div class="button-bar">
           <div ng-click="number(0)" class="button">0</div>
-          <div ng-cick="decimal()" class="button">.</div>
-          <div ng-click="equals()" class="button">=</div>
-          <div class="button">/</div>
+          <div ng-cick="number(&quot;.&quot;)" class="button">.</div>
+          <div ng-click="math()" class="button">=</div>
+          <div ng-click="calc(&quot;/&quot;)" class="button">/</div>
         </div>
         <div class="button-bar">
           <div ng-click="clear()" class="button">C</div>
